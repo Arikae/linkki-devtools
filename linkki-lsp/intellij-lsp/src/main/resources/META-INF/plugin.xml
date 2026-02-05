@@ -1,0 +1,37 @@
+<idea-plugin>
+    <id>org.linkki.lsp.intellij</id>
+    <name>Linkki Tooling Support</name>
+    <vendor>linkki-framework</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.redhat.devtools.lsp4ij</depends>
+
+    <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
+        <server id="linkkiLspServer"
+                name="Linkki Language Server"
+                factoryClass="org.linkki.lsp.intellij.LinkkiLanguageServerFactory">
+            <description><![CDATA[
+                Provides validation, code actions, and navigation for linkki PMOs and properties files.
+            ]]></description>
+        </server>
+
+        <languageMapping language="JAVA" serverId="linkkiLspServer"/>
+        <fileTypeMapping fileType="Properties" serverId="linkkiLspServer"/>
+
+        <semanticTokensColorsProvider
+                serverId="linkkiLspServer"
+                class="org.linkki.lsp.intellij.LinkkiSemanticTokensProvider"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Linkki Structure"
+                    anchor="right"
+                    icon="/icons/linkki.svg"
+                    factoryClass="org.linkki.lsp.intellij.LinkkiStructureToolWindowFactory"/>
+    </extensions>
+
+    <actions>
+        <action id="linkki.applySnippet" class="org.linkki.lsp.intellij.LinkkiApplySnippetCommandAction"/>
+    </actions>
+</idea-plugin>

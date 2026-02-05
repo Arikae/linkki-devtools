@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Linkki LSP Eclipse Client
+Bundle-SymbolicName: eclipse-lsp;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Bundle-ClassPath: .,
+ target/classes/,
+ server/server.jar
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.lsp4e;visibility:=reexport,
+ org.eclipse.core.resources,
+ org.eclipse.jdt.core,
+ org.eclipse.ui.genericeditor
+Import-Package: org.osgi.framework
+Bundle-ActivationPolicy: lazy
+Export-Package: org.linkki.lsp.eclipse

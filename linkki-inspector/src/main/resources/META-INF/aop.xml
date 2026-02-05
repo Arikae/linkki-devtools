@@ -1,0 +1,19 @@
+<aspectj>
+    <weaver options="">
+        <include within="org.linkki.inspector.*"/>
+
+        <include within="*..*..*Pmo+"/>
+        <include within="com.vaadin.flow.component.Component+.new(..)"/>
+        <include within="org.linkki.core.binding.BindingContext"/>
+        <include within="org.linkki.core.ui.creation.section.PmoBasedSectionFactory"/>
+        <include within="org.linkki.core.binding.dispatcher.PropertyDispatcher+.pull(..)"/>
+
+        <exclude within="org.linkki.util..*"/>
+        <exclude within="org.linkki.core.defaults..*"/>
+        <exclude within="org.linkki.core.pmo..*"/>
+    </weaver>
+    <aspects>
+        <aspect name="org.linkki.inspector.LinkkiBindingInterceptor"/>
+        <aspect name="org.linkki.inspector.DispatcherChainInterceptor"/>
+    </aspects>
+</aspectj>

@@ -1,0 +1,23 @@
+<plugin>
+
+    <extension point="org.eclipse.lsp4e.languageServer">
+        <server
+                id="org.linkki.lsp.eclipse.server"
+                label="Linkki LSP Server"
+                class="org.linkki.lsp.eclipse.LinkkiStreamConnectionProvider">
+        </server>
+        <contentTypeMapping
+                contentType="org.eclipse.jdt.core.javaSource"
+                id="org.linkki.lsp.eclipse.server">
+        </contentTypeMapping>
+        <contentTypeMapping
+                contentType="org.eclipse.jdt.core.javaProperties"
+                id="org.linkki.lsp.eclipse.server">
+        </contentTypeMapping>
+        <contentTypeMapping
+                contentType="org.linkki.lsp.eclipse.linkkiMessages"
+                id="org.linkki.lsp.eclipse.server"
+                languageId="properties">
+        </contentTypeMapping>
+    </extension>
+</plugin>

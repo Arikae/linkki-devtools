@@ -1,0 +1,46 @@
+{
+  "name": "linkki-lsp",
+  "displayName": "Linkki LSP",
+  "description": "Language Server Protocol implementation for linkki framework",
+  "version": "1.0.0",
+  "publisher": "linkki-framework",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:java",
+    "onLanguage:properties"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Linkki LSP configuration",
+      "properties": {
+        "linkki.lsp.serverPath": {
+          "type": "string",
+          "default": "server/lsp-server-1.0.0-SNAPSHOT.jar",
+          "description": "Path to the Linkki LSP server JAR file."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/vscode": "^1.75.0",
+    "typescript": "^4.9.5",
+    "vsce": "^2.15.0"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^8.1.0"
+  }
+}
