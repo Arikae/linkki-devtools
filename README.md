@@ -66,4 +66,4 @@ and configuring each tool.
 
 ## License
 
-[Add License Information Here]
+linkki-devtools is available under the MIT license.
